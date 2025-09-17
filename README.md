@@ -42,7 +42,7 @@ If you love using React Native Awesome Gallery and would like to show your appre
 First you have to follow installation instructions of [Reanimated v3](https://docs.swmansion.com/react-native-reanimated/) and [react-native-gesture-handler](https://docs.swmansion.com/react-native-gesture-handler/)
 
 ```sh
-yarn add react-native-awesome-gallery
+pnpm add react-native-awesome-gallery
 ```
 
 Expo is supported since SDK 40. More information [here](https://docs.expo.io/versions/latest/sdk/reanimated/)

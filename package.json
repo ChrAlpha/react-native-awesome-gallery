@@ -27,11 +27,11 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "build": "bob build",
     "prepare": "husky install",
-    "prepublishOnly": "yarn build",
+    "prepublishOnly": "pnpm build",
     "release": "release-it",
-    "example": "yarn --cwd example",
+    "example": "pnpm --filter example",
     "pods": "cd example && pod-install --quiet",
-    "bootstrap": "yarn example && yarn && yarn pods"
+    "bootstrap": "pnpm install && pnpm --filter example install && pnpm pods"
   },
   "keywords": [
     "react-native",
@@ -83,14 +83,19 @@
     "react-native-reanimated": "^3.6.0"
   },
   "jest": {
-    "preset": "react-native",
+    "testEnvironment": "node",
     "modulePathIgnorePatterns": [
       "<rootDir>/example/node_modules",
       "<rootDir>/lib/"
     ],
-    "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|@react-native|react-native-reanimated|react-native-gesture-handler)/)"
-    ]
+    "transform": {
+      "^.+\\.(ts|tsx)$": "babel-jest"
+    },
+    "testMatch": [
+      "**/__tests__/**/*.(ts|tsx|js)",
+      "**/*.(test|spec).(ts|tsx|js)"
+    ],
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
   },
   "release-it": {
     "git": {

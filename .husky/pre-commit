@@ -1,1 +1,1 @@
-yarn lint && yarn typescript
+pnpm lint && pnpm typescript
